@@ -17,21 +17,18 @@ todoForm.addEventListener("submit", function(event) {
         let li = document.createElement("li");
         let span = document.createElement("span");
         let close = "\u00D7";
-        //For loop to add the task and description variables values to span's childs and then adding them to the li variable.
-        for (let i = 3; i > 0 ; i--) {
-            if (i == 3) {
+        //For loop to add the task and description variables values to span's childs and then adding them as child to the li variable.
+
                 span.appendChild(document.createTextNode(task));
                 li.appendChild(span);
                 span.classList.add("taskOnList");
                 span = document.createElement("span");
-            }
-            else if (i == 2) {
+            
                 span.appendChild(document.createTextNode(description));
                 li.appendChild(span);
                 span.classList.add("descriptionOnList");
                 span = document.createElement("span");
-            }
-            else if (i == 1) {
+
                 span.appendChild(document.createTextNode(close));
                 //Creates onclick event on the span for deleting items.
                 span.addEventListener("click", function(event) {
@@ -44,9 +41,9 @@ todoForm.addEventListener("submit", function(event) {
                 li.appendChild(span);
                 span.classList.add("delete");
                 span = document.createElement("span");
-            }   
+               
             
-        }
+
         //Creates a li element as a child of the unordered list which has two span childs with task and description values for css styling.
         document.getElementById("ulTasks").appendChild(li);
         //Adding a class to the li element we created for styling.
@@ -64,4 +61,3 @@ list.addEventListener("click", function (event) {
            }
     }
 )
-
