@@ -1,6 +1,6 @@
 //Stores the html form data in a constant.
 const todoForm = document.getElementById("taskForm");
-
+let idCounter = 0;
 //On the event "submit" of our submit form button prevents the default browser behavior (refreshing) and adds the new item data to the unordered list.
 todoForm.addEventListener("submit", function(event) {
         event.preventDefault();
@@ -16,37 +16,61 @@ todoForm.addEventListener("submit", function(event) {
         //Sets variables to create li and span html elements.
         let li = document.createElement("li");
         let span = document.createElement("span");
-        let close = "\u00D7";
-        //For loop to add the task and description variables values to span's childs and then adding them to the li variable.
-        for (let i = 3; i > 0 ; i--) {
-            if (i == 3) {
+        let deleteSymbol = "\u00D7";
+        let editSymbol = "\uD83D\uDD89";
+        idCounter++
+        const editIdCounter = idCounter;
+        //For loop to add the task and description variables values to span's childs and then adding them as child to the li variable.
+
                 span.appendChild(document.createTextNode(task));
                 li.appendChild(span);
+                span.id = `spanTask${idCounter}`;
                 span.classList.add("taskOnList");
                 span = document.createElement("span");
-            }
-            else if (i == 2) {
+            
                 span.appendChild(document.createTextNode(description));
                 li.appendChild(span);
+                span.id = `spanDescription${idCounter}`; 
                 span.classList.add("descriptionOnList");
                 span = document.createElement("span");
-            }
-            else if (i == 1) {
-                span.appendChild(document.createTextNode(close));
+
+                //Creating the edit button on the li element.
+                span.appendChild(document.createTextNode(editSymbol));
+                span.addEventListener("click", function () {
+                    let taskFormData = new FormData(todoForm);
+                    //Stores the form's task and description values in variables.
+                    let task = taskFormData.get("formTask");
+                    let description = taskFormData.get("formDescription");
+                    //Editing the span text with the new one.
+                    document.getElementById(`spanTask${editIdCounter}`).innerHTML = task;
+                    document.getElementById(`spanDescription${editIdCounter}`).innerHTML = description;
+                    
+                    //Resets form.
+                    document.getElementById("formTask").value = "";
+                    document.getElementById("formDescription").value = "";
+
+                }
+                )
+
+                li.appendChild(span);
+                span.classList.add("edit");
+                span = document.createElement("span");
+          
+
+                span.appendChild(document.createTextNode(deleteSymbol));
                 //Creates onclick event on the span for deleting items.
-                span.addEventListener("click", function(event) {
+                span.addEventListener("click", function() {
                     div = this.parentElement;
                     div.remove();
-                    //div.style.display = "none"; this code hides the element but dont erase it from the code.
+                    //div.style.display = "none"; this code hides the element but doesn't erase it from the code.
                 }
-
                 )
+
                 li.appendChild(span);
                 span.classList.add("delete");
                 span = document.createElement("span");
-            }   
-            
-        }
+
+
         //Creates a li element as a child of the unordered list which has two span childs with task and description values for css styling.
         document.getElementById("ulTasks").appendChild(li);
         //Adding a class to the li element we created for styling.
@@ -64,4 +88,3 @@ list.addEventListener("click", function (event) {
            }
     }
 )
-
