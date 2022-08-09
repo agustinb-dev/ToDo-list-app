@@ -162,7 +162,7 @@ ul li.checked::after {
 ul li.checked::before {
     content: "✓";
     position: absolute;
-    left: 5px; /* for position absolute */
+    left: 20px; /* for position absolute */
     /*left: -13px; for position relative (se mueve)*/
     margin: 0;
     padding: 0;
