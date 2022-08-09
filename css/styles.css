@@ -1,5 +1,4 @@
 body {
-    display: flex;
     background-color: tomato;
     margin: 0;
     padding: 0;
@@ -32,14 +31,19 @@ ul {
 
 
 li {
+    display: flex;
     background-color: rgb(238,238,238);
-    margin-left: -41px;
     padding: 0;
-    width: 800px;
     padding-left: 30px;
-    border: 1px solid rgb(110, 115, 120);
-    border-bottom: 0px solid ;
+    border-top: 1px solid rgb(110, 115, 120);
+    position: relative;
 
+}
+
+#ulTasks {
+    width: 800px;
+    border: 1px solid rgb(110, 115, 120);
+    border-top: 0px;
 }
 
 .listHead {
@@ -56,28 +60,29 @@ li {
 }
 
 .listHead .checkHead {
-    margin-left: 365px;
-    margin-right: 100px;
+    margin-left: 45px;
+    margin-right: 80px;
 }
 
 .listHead .taskHead {
     margin-left: 0px;
-    margin-right: 320px;
-
+    margin-right: 290px;
 }
 
 .listHead .descriptionHead {
     margin-left: 0px;
-    margin-right: 200px;
-    
+    margin-right: 190px;
+}
 
+.listHead .editHead {
+    margin-left: 0px;
+    margin-right: 5px;
 }
 
 /*.listHead .deleteHead {
     margin-left: 240px;
     margin-right: 0 ;
     width: 100px;
-
 }*/
 
 /*.listHead span {
@@ -89,28 +94,48 @@ li {
 
 
 .taskOnList {
-    display: inline-block;
+    /*display: inline-block;*/
     background-color: rgb(238,238,238);
-    width: 30%;
+    flex-basis: 30%;
+    pointer-events: none;
 }
 
 .descriptionOnList {
-    display:inline-block;
+    /*display:inline-block;*/
     background-color: rgb(238,238,238);
-    width: 62%;
+    flex-basis: 60%;
+    pointer-events: none;
 }
 
 .delete {
     background-color: tomato;
     border-radius: 3px;
-    padding-right: 10px;
+    /*padding-right: 10px;
     padding-left: 10px;
     padding-top: 7px;
-    padding-bottom: 7px;
+    padding-bottom: 7px;*/
+    margin-top: 2px;
+    margin-bottom: 2px;
     transition: 0.3s;
     cursor: default;
-    position: relative;
+    flex-basis: 4%;
     
+}
+
+.edit {
+    background-color: rgb(50,158,230);
+    border-radius: 3px;
+    flex-basis: 4%;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    transition: 0.3s;
+    cursor: default;
+    margin-right: 2px;
+    transition: 0.2s;
+}
+
+.edit:hover {
+    background-color: rgb(2,132,219);
 }
 
 .delete:hover{
@@ -136,8 +161,9 @@ ul li.checked::after {
 
 ul li.checked::before {
     content: "✓";
-    position: relative;
-    left: -23px;
+    position: absolute;
+    left: 5px; /* for position absolute */
+    /*left: -13px; for position relative (se mueve)*/
     margin: 0;
     padding: 0;
 }

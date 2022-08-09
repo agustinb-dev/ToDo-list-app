@@ -12,16 +12,21 @@
         <form id="taskForm" class="taskForm">
             <label for="">Add Task:</label><br>
             <input type="text" id="formTask" name="formTask" placeholder="Task" maxlength="23"><br>
-            <input type="text" id="formDescription" name="formDescription" placeholder="Description" maxlength="55"><br>
+            <input type="text" id="formDescription" name="formDescription" placeholder="Description" maxlength="50"><br>
             <input type="submit" value="Add" class="submitBtn"><br>
         </form>
         
         <div class="listHead">
-            <span class="checkHead">Check</span><span class="taskHead">Task</span><span class="descriptionHead">Description</span><span class="deleteHead">Delete</span>
-
+            <span class="checkHead">Check</span>
+            <span class="taskHead">Task</span>
+            <span class="descriptionHead">Description</span>
+            <span class="editHead">Edit</span>
+            <span class="deleteHead">Delete</span>
         </div>
 
-        <ul id="ulTasks">
+        <ul>
+            <div id="ulTasks">
+            </div>
         </ul>
         <script type="text/javascript" src="/JavaScript/index.js" async defer></script>
     </body>
