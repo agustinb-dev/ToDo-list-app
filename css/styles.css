@@ -1,0 +1,144 @@
+body {
+    display: flex;
+    background-color: tomato;
+    margin: 0;
+    padding: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    user-select: none;
+}
+
+.taskForm .submitBtn {
+    margin-top: 3px;
+}
+
+#formTask {
+    margin-bottom: 3px;
+}
+
+ul {
+    background-color: none;
+    height: 40px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    line-height: 40px;
+    list-style: none;
+    flex-direction: column;
+}
+
+
+li {
+    background-color: rgb(238,238,238);
+    margin-left: -41px;
+    padding: 0;
+    width: 800px;
+    padding-left: 30px;
+    border: 1px solid rgb(110, 115, 120);
+    border-bottom: 0px solid ;
+
+}
+
+.listHead {
+    display: flex;
+    background-color: rgb(78,89,111);
+    height: 40px;
+    margin-bottom: 0;
+    text-align: center;
+    line-height: 40px;
+    justify-content:center;
+    padding-right: 380px;
+    width: 100%;
+    
+}
+
+.listHead .checkHead {
+    margin-left: 365px;
+    margin-right: 100px;
+}
+
+.listHead .taskHead {
+    margin-left: 0px;
+    margin-right: 320px;
+
+}
+
+.listHead .descriptionHead {
+    margin-left: 0px;
+    margin-right: 200px;
+    
+
+}
+
+/*.listHead .deleteHead {
+    margin-left: 240px;
+    margin-right: 0 ;
+    width: 100px;
+
+}*/
+
+/*.listHead span {
+    margin-left: 0px;
+    margin-right: 0px;
+    border: 1px black solid;
+    width: 250px;
+}*/
+
+
+.taskOnList {
+    display: inline-block;
+    background-color: rgb(238,238,238);
+    width: 30%;
+}
+
+.descriptionOnList {
+    display:inline-block;
+    background-color: rgb(238,238,238);
+    width: 62%;
+}
+
+.delete {
+    background-color: tomato;
+    border-radius: 3px;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    transition: 0.3s;
+    cursor: default;
+    position: relative;
+    
+}
+
+.delete:hover{
+    background-color: rgb(255,59,59);
+}
+
+.taskForm {
+    color: white;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: rgb(36,42,56);
+    position: static;
+    text-align: center;
+    margin-left: 0px;
+    padding-bottom: 5px;
+}
+
+ul li.checked::after {
+    color: white;
+    background-color: rgb(28,28,28);
+}
+
+ul li.checked::before {
+    content: "✓";
+    position: relative;
+    left: -23px;
+    margin: 0;
+    padding: 0;
+}
+
