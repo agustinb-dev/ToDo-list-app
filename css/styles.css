@@ -60,25 +60,30 @@ li {
 }
 
 .listHead .checkHead {
-    flex-basis: 6%;
+    margin-left: 45px;
+    margin-right: 80px;
 }
 
 .listHead .taskHead {
-    flex-basis: 13%;
+    margin-left: 0px;
+    margin-right: 290px;
 }
 
 .listHead .descriptionHead {
-    flex-basis: 35%;
+    margin-left: 0px;
+    margin-right: 190px;
 }
 
 .listHead .editHead {
-    flex-basis: 3%;
+    margin-left: 0px;
+    margin-right: 5px;
 }
 
-.listHead .deleteHead {
-    flex-basis: 2%;
-
-}
+/*.listHead .deleteHead {
+    margin-left: 240px;
+    margin-right: 0 ;
+    width: 100px;
+}*/
 
 /*.listHead span {
     margin-left: 0px;
@@ -157,7 +162,8 @@ ul li.checked::after {
 ul li.checked::before {
     content: "✓";
     position: absolute;
-    left: 5px;
+    left: 5px; /* for position absolute */
+    /*left: -13px; for position relative (se mueve)*/
     margin: 0;
     padding: 0;
 }
