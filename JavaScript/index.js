@@ -76,15 +76,42 @@ todoForm.addEventListener("submit", function(event) {
                 span.appendChild(document.createTextNode(deleteSymbol));
                 //Creates onclick event on the span for deleting items.
                 span.addEventListener("click", function() {
-                    div = this.parentElement;
-                    div.remove();
-                    Swal.fire({
+
+                    const swalWithBootstrapButtons = Swal.mixin({
+                        customClass: {
+                          confirmButton: 'btn btn-success',
+                          cancelButton: 'btn btn-danger'
+                        },
+                        buttonsStyling: false
+                      })
+                      
+                      swalWithBootstrapButtons.fire({
+                        title: 'Are you sure?',
+                        text: "You won't be able to revert this!",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonText: 'Yes, delete it!',
+                        cancelButtonText: 'No, cancel!',
+                        reverseButtons: true
+                      }).then((result) => {
+                        if (result.isConfirmed) {
+                          swalWithBootstrapButtons.fire(
+                            'Deleted!',
+                            'Your task has been deleted.',
+                            'success'
+                          )
+                            div = this.parentElement;
+                            div.remove();
+                        }
+                      })
+
+                    /*Swal.fire({
                         position: 'top',
                         icon: 'success',
                         title: 'Task deleted',
                         showConfirmButton: false,
                         timer: 1000
-                      })
+                      })*/
                     //div.style.display = "none"; this code hides the element but doesn't erase it from the code.
                 }
                 )
