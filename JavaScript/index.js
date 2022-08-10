@@ -38,17 +38,25 @@ todoForm.addEventListener("submit", function(event) {
                 span.appendChild(document.createTextNode(editSymbol));
                 span.addEventListener("click", function () {
                     let taskFormData = new FormData(todoForm);
-                    //Stores the form's task and description values in variables.
+                    //Stores the form's task and description field values in variables.
                     let task = taskFormData.get("formTask");
                     let description = taskFormData.get("formDescription");
-                    //Editing the span text with the new one.
-                    document.getElementById(`spanTask${editIdCounter}`).innerHTML = task;
-                    document.getElementById(`spanDescription${editIdCounter}`).innerHTML = description;
-                    
-                    //Resets form.
-                    document.getElementById("formTask").value = "";
-                    document.getElementById("formDescription").value = "";
 
+                    if (task !== "" && description !== "") {
+                        //Editing the span text with the new one.
+                        document.getElementById(`spanTask${editIdCounter}`).innerHTML = task;
+                        document.getElementById(`spanDescription${editIdCounter}`).innerHTML = description;
+                        //Resets form.
+                        document.getElementById("formTask").value = "";
+                        document.getElementById("formDescription").value = "";
+                    } else {
+                        Swal.fire({
+                            title: 'Error!',
+                            text: 'Please fill task and description form fields to edit.',
+                            icon: 'error',
+                            confirmButtonText: 'Cool'
+                          })
+                    }
                 }
                 )
 
