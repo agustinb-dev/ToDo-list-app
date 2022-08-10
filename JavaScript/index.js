@@ -51,7 +51,7 @@ todoForm.addEventListener("submit", function(event) {
                         document.getElementById("formDescription").value = "";
                     } else {
                         Swal.fire({
-                            title: 'Error!',
+                            title: '',
                             text: 'Please fill task and description form fields to edit.',
                             icon: 'error',
                             confirmButtonText: 'Cool'
