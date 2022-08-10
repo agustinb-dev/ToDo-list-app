@@ -49,6 +49,14 @@ todoForm.addEventListener("submit", function(event) {
                         //Resets form.
                         document.getElementById("formTask").value = "";
                         document.getElementById("formDescription").value = "";
+                        //Edit button success alert.
+                        Swal.fire({
+                            position: 'top',
+                            icon: 'success',
+                            title: 'Task edited',
+                            showConfirmButton: false,
+                            timer: 1000
+                          })
                     } else {
                         Swal.fire({
                             title: '',
@@ -70,6 +78,13 @@ todoForm.addEventListener("submit", function(event) {
                 span.addEventListener("click", function() {
                     div = this.parentElement;
                     div.remove();
+                    Swal.fire({
+                        position: 'top',
+                        icon: 'success',
+                        title: 'Task deleted',
+                        showConfirmButton: false,
+                        timer: 1000
+                      })
                     //div.style.display = "none"; this code hides the element but doesn't erase it from the code.
                 }
                 )
@@ -84,7 +99,15 @@ todoForm.addEventListener("submit", function(event) {
         //Adding a class to the li element we created for styling.
         li.classList.add("listItem");
         
-
+        //Submit button success alert.
+        Swal.fire({
+            position: 'top',
+            icon: 'success',
+            width: 300,
+            title: '',
+            showConfirmButton: false,
+            timer: 1000
+          })
     }
 );
 
