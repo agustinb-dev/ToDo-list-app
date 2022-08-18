@@ -1,6 +1,24 @@
 //Stores the html form data in a constant.
 const todoForm = document.getElementById("taskForm");
 let idCounter = 0;
+
+function elementMaker (li, span, task, description, taskClass, descriptionClass, idCounter) {
+  span.appendChild(document.createTextNode(task));
+  li.appendChild(span);
+  span.id = `spanTask${idCounter}`;
+  span.classList.add(taskClass);
+  span = document.createElement("span");
+
+  span.appendChild(document.createTextNode(description));
+  li.appendChild(span);
+  span.id = `spanDescription${idCounter}`;
+  span.classList.add(descriptionClass);
+}
+
+function resetSpan (span){
+  return span = document.createElement("span");
+}
+
 //On the event "submit" of our submit form button prevents the default browser behavior (refreshing) and adds the new item data to the unordered list.
 todoForm.addEventListener("submit", function(event) {
         event.preventDefault();
@@ -22,17 +40,8 @@ todoForm.addEventListener("submit", function(event) {
         const editIdCounter = idCounter;
         //For loop to add the task and description variables values to span's childs and then adding them as child to the li variable.
 
-                span.appendChild(document.createTextNode(task));
-                li.appendChild(span);
-                span.id = `spanTask${idCounter}`;
-                span.classList.add("taskOnList");
-                span = document.createElement("span");
-            
-                span.appendChild(document.createTextNode(description));
-                li.appendChild(span);
-                span.id = `spanDescription${idCounter}`; 
-                span.classList.add("descriptionOnList");
-                span = document.createElement("span");
+                elementMaker(li, span, task, description, 'taskOnList', 'descriptionOnList', idCounter);
+                span = resetSpan(span);
 
                 //Creating the edit button on the li element.
                 span.appendChild(document.createTextNode(editSymbol));
